@@ -45,11 +45,11 @@ public class Phantom_Halberd_Entity extends Entity {
     }
 
 
-    public Phantom_Halberd_Entity(Level worldIn, double x, double y, double z, float p_i47276_8_, int p_i47276_9_, LivingEntity casterIn,float damage) {
+    public Phantom_Halberd_Entity(Level worldIn, double x, double y, double z, float rotation, int delay, LivingEntity casterIn,float damage) {
         this(ModEntities.PHANTOM_HALBERD.get(), worldIn);
-        this.warmupDelayTicks = p_i47276_9_;
+        this.warmupDelayTicks = delay;
         this.setCaster(casterIn);
-        this.setYRot(p_i47276_8_ * (180F / (float)Math.PI));
+        this.setYRot(rotation * (180F / (float)Math.PI));
         this.setDamage(damage);
         this.setPos(x, y, z);
     }
@@ -127,9 +127,9 @@ public class Phantom_Halberd_Entity extends Entity {
         entityData.set(DAMAGE, damage);
     }
 
-    public void setCaster(@Nullable LivingEntity p_190549_1_) {
-        this.caster = p_190549_1_;
-        this.casterUuid = p_190549_1_ == null ? null : p_190549_1_.getUUID();
+    public void setCaster(@Nullable LivingEntity livingEntity) {
+        this.caster = livingEntity;
+        this.casterUuid = livingEntity == null ? null : livingEntity.getUUID();
     }
 
     @Nullable
